@@ -1,0 +1,9 @@
+Take your standard web app (i.e. React, Vue, Next, Angular, etc.) and convert
+each individual component (button, div, etc.) into it's own dedicated Angular
+application. Convert each component application into individual WASM modules via
+wasm-bindgen (using a highly performant Rust build server), and import each
+module application into a mothership Angular application using
+WebAssembly.instantiateStreaming()., where the target is all your WASM modules.
+CSS becomes optimized by converting every key-value into respective hexadecimal
+values. :rare_kek: If you ever change a single element, you dont have to
+recompile your entire application -- just the individual WASM module.

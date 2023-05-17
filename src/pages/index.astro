@@ -2,14 +2,52 @@
 ---
 
 <html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
-	</head>
-	<body>
-		<h1>Astro</h1>
-	</body>
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="generator" content={Astro.generator} />
+    <title>Astro</title>
+  </head>
+  <body>
+    <div class="h-screen bg-slate-950 text-white font-sans">
+      <div
+        class="h-16 border-slate-700 border-b mb-4 font-mono font-bold text-3xl"
+      >
+        Rustular
+      </div>
+      <div class="text-center flex flex-col space-y-4">
+        <div class="text-5xl">Blazingly fast</div>
+        <div class="font-thin">
+          Rustular is a revolutionary web development tool that harnesses the
+          immense power of Rust, WebAssembly, and Angular. By leveraging these
+          cutting-edge technologies, Rustular empowers developers to create
+          lightning-fast and highly modular web applications. With its advanced
+          performance optimizations and seamless integration capabilities,
+          Rustular sets a new standard for building efficient and scalable web
+          experiences.
+        </div>
+        <div class="flex mx-auto space-x-8">
+          <a
+            class="border-2 border-white hover:border-slate-200 rounded-full px-8 py-4 bg-white hover:bg-slate-200 text-fuchsia-600"
+            href="/tmp"
+          >
+            Get Started
+          </a>
+          <div
+            class="cursor-copy p-4 border-2 select-none border-fuchsia-600"
+            onclick="navigator.clipboard.writeText('pnpm create rustular-app')"
+          >
+            {'> pnpm create rustular-app'}
+          </div>
+        </div>
+        <div>
+          Powered by
+          <div>Angular</div>
+          <div>Rust</div>
+          <div>WebAssembly</div>
+        </div>
+      </div>
+    </div>
+  </body>
 </html>
