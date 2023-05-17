@@ -19,10 +19,10 @@ const getClosestTimeZone = () => {
 
   aryIannaTimeZones.forEach((timeZone) => {
     // get current hour and minute in this timezone
-    const options = {
+    const options: Intl.DateTimeFormatOptions = {
       timeZone,
-      hour: 'numeric' as const,
-      minute: 'numeric' as const,
+      hour: 'numeric',
+      minute: 'numeric',
       hour12: false,
     };
     const formatter = new Intl.DateTimeFormat([], options);
