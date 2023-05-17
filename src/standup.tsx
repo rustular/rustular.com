@@ -23,6 +23,7 @@ const getClosestTimeZone = () => {
       timeZone,
       hour: 'numeric' as const,
       minute: 'numeric' as const,
+      hour12: false,
     };
     const formatter = new Intl.DateTimeFormat([], options);
     const time = formatter
