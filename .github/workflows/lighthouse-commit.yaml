@@ -1,0 +1,55 @@
+name: Commit Lighthouse Audit
+
+on:
+  deployment_status
+
+jobs:
+  generate_lighthouse_audit:
+    timeout-minutes: 30
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+      - name: Audit preview URL with Lighthouse
+        id: lighthouse_audit
+        uses: treosh/lighthouse-ci-action@v9
+        with:
+          urls: |
+            ${{ github.event.deployment_status.environment_url }}
+          uploadArtifacts: true
+          temporaryPublicStorage: true
+      - name: Format lighthouse score
+        id: format_lighthouse_score
+        uses: actions/github-script@v3
+        with:
+          github-token: ${{secrets.GITHUB_TOKEN}}
+          script: |
+            const result = ${{ steps.lighthouse_audit.outputs.manifest }}[0].summary
+            const links = ${{ steps.lighthouse_audit.outputs.links }}
+
+            const formatResult = (res) => Math.round((res * 100))
+            Object.keys(result).forEach(key => result[key] = formatResult(result[key]))
+
+            const score = res => res >= 90 ? '🟢' : res >= 50 ? '🟠' : '🔴'
+
+            const comment = [
+                `⚡️ [Lighthouse report](${Object.values(links)[0]}) for the changes in this commit:`,
+                '| Category | Score |',
+                '| --- | --- |',
+                `| ${score(result.performance)} Performance | ${result.performance} |`,
+                `| ${score(result.accessibility)} Accessibility | ${result.accessibility} |`,
+                `| ${score(result['best-practices'])} Best practices | ${result['best-practices']} |`,
+                `| ${score(result.seo)} SEO | ${result.seo} |`,
+                `| ${score(result.pwa)} PWA | ${result.pwa} |`,
+                ' ',
+                `*Lighthouse ran on [${Object.keys(links)[0]}](${Object.keys(links)[0]})*`
+            ].join('\n')
+
+            core.setOutput("comment", comment);
+      - name: Add comment to commit
+        id: comment_to_commit
+        uses: peter-evans/commit-comment@v2
+        with:
+          sha: ${{ github.sha }}
+          body: |
+            ${{ steps.format_lighthouse_score.outputs.comment }}
