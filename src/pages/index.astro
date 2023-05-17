@@ -1,4 +1,5 @@
 ---
+import { Image } from '@astrojs/image/components';
 ---
 
 <html lang="en">
@@ -6,17 +7,15 @@
     <meta charset="utf-8" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="viewport" content="width=device-width" />
-    <meta name="generator" content={Astro.generator} />
-    <title>Astro</title>
+    <meta name="generator" content="Rustular 0.0.0" />
+    <title>Rustular</title>
   </head>
-  <body>
-    <div class="h-screen bg-slate-950 text-white font-sans">
-      <div
-        class="h-16 border-slate-700 border-b mb-4 font-mono font-bold text-3xl"
-      >
-        Rustular
+  <body class="bg-slate-950 text-white font-sans">
+    <div class="h-screen">
+      <div class="h-16 border-slate-700 border-b flex items-center mb-16">
+        <a class="font-mono font-bold text-3xl pl-4" href="/">Rustular</a>
       </div>
-      <div class="text-center flex flex-col space-y-4">
+      <div class="text-center flex flex-col space-y-16 max-w-xl mx-auto">
         <div class="text-5xl">Blazingly fast</div>
         <div class="font-thin">
           Rustular is a revolutionary web development tool that harnesses the
@@ -30,7 +29,7 @@
         <div class="flex mx-auto space-x-8">
           <a
             class="border-2 border-white hover:border-slate-200 rounded-full px-8 py-4 bg-white hover:bg-slate-200 text-fuchsia-600"
-            href="/tmp"
+            href="/docs"
           >
             Get Started
           </a>
@@ -42,12 +41,82 @@
           </div>
         </div>
         <div>
-          Powered by
-          <div>Angular</div>
-          <div>Rust</div>
-          <div>WebAssembly</div>
+          Powered by:
+          <Image
+            class="mx-auto w-1/4"
+            src="../assets/angular.png"
+            alt="Angular Logo"
+            width={269}
+            height={72}
+          />
+          <Image
+            class="mx-auto w-1/4"
+            src="../assets/rust.png"
+            alt="Rust Logo"
+            width={265}
+            height={164}
+          />
+          <Image
+            class="mx-auto w-1/4"
+            src="../assets/webassembly.png"
+            alt="Web Assembly Logo"
+            width={211}
+            height={120}
+          />
         </div>
       </div>
+    </div>
+    <div class="text-center space-y-4 mb-8">
+      <div class="text-2xl">
+        Faster than any other <span class="text-[0.4rem]">tested</span> framework!
+      </div>
+      <div class="font-thin max-w-xl mx-auto">
+        We believe speed is crucial for all websites. Faster website loading
+        leads to increased revenue. That's why Rustular is designed to
+        prioritize speed. With its exceptionally fast loading times, your
+        customers won't have to wait.
+      </div>
+      <Image
+        class="mx-auto"
+        src="../assets/speed.png"
+        alt="Rustular"
+        width={476}
+        height={479}
+      />
+      <div class="text-2xl">Fully open-source and community-driven!</div>
+      <div class="font-thin max-w-xl mx-auto">
+        Rustular is fully open-source and community-driven. We believe that
+        open-source software is the future of web development. That's why we
+        made Rustular open-source. We want to empower developers to create
+        amazing web experiences. The Rustular community is always growing, and
+        we'd love for you to join us! Visit our{' '}
+        <a class="underline" href="https://github.com/lofimichael/rustular">
+          GitHub</a
+        > and even <a
+          class="underline"
+          href="https://github.com/tonyaellie/rustular">this website's github</a
+        >! to learn more.
+      </div>
+      <div class="text-2xl">The idea!</div>
+      <div class="font-thin max-w-xl mx-auto">
+        Take your standard web app (i.e. React, Vue, Next, Angular, etc.) and
+        convert each individual component (button, div, etc.) into it's own
+        dedicated Angular application. Convert each component application into
+        individual WASM modules via wasm-bindgen (using a highly performant Rust
+        build server), and import each module application into a mothership
+        Angular application using WebAssembly.instantiateStreaming()., where the
+        target is all your WASM modules. CSS becomes optimized by converting
+        every key-value into respective hexadecimal values. If you ever change a
+        single element, you dont have to recompile your entire application --
+        just the individual WASM module.
+      </div>
+      <div class="text-5xl pb-8">Start building with Rustular today</div>
+      <a
+        class="border-2 border-white hover:border-slate-200 rounded-full px-8 py-4 bg-white hover:bg-slate-200 text-fuchsia-600"
+        href="/docs"
+      >
+        Get Started
+      </a>
     </div>
   </body>
 </html>
