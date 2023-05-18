@@ -1,27 +1,8 @@
 ---
-import { Image } from '@astrojs/image/components';
 import StandUp from '../components/Standup';
+import Layout from '../components/Layout.astro';
 ---
 
-<html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <link rel="icon" type="image/ico" href="/favicon.ico" />
-    <meta name="viewport" content="width=device-width" />
-    <meta name="generator" content="Rustular 0.0.0" />
-    <title>Rustular</title>
-  </head>
-  <body class="bg-slate-950 font-sans text-white">
-    <div class="mb-16 flex h-16 items-center border-b border-slate-700">
-      <Image
-        class="ml-2 w-10"
-        src="/assets/rustular.png"
-        alt="Rust Logo"
-        width={128}
-        height={128}
-      />
-      <a class="pl-2 font-mono text-3xl font-bold" href="/">Rustular</a>
-    </div>
-    <StandUp client:load />
-  </body>
-</html>
+<Layout slot="Stand Up">
+  <StandUp client:load />
+</Layout>
