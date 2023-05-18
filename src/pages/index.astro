@@ -22,10 +22,16 @@ import Layout from '../components/Layout.astro';
         Get Started
       </a>
       <div
-        class="cursor-copy select-none border-2 border-fuchsia-600 p-4"
+        class="flex cursor-copy select-none bg-gradient-to-r from-fuchsia-600 via-blue-700 to-pink-600 bg-size-200 bg-pos-0 p-0.5 transition-all duration-1000 hover:bg-pos-100 hover:duration-500"
         onclick="navigator.clipboard.writeText('pnpm create rustular-app')"
       >
-        {'> pnpm create rustular-app'}
+        <div
+          class="mx-auto flex bg-slate-950 p-3 transition-colors duration-500 active:bg-slate-900 active:duration-0"
+        >
+          <div class="m-auto">
+            {'~ pnpm create rustular-app'}
+          </div>
+        </div>
       </div>
     </div>
     <div>
