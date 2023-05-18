@@ -10,19 +10,19 @@ import { Image } from '@astrojs/image/components';
     <meta name="generator" content="Rustular 0.0.0" />
     <title>Rustular</title>
   </head>
-  <body class="bg-slate-950 text-white font-sans">
+  <body class="bg-slate-950 font-sans text-white">
     <div class="h-screen">
-      <div class="h-16 border-slate-700 border-b flex items-center mb-16">
+      <div class="mb-16 flex h-16 items-center border-b border-slate-700">
         <Image
-          class="w-10 bg-white rounded-full border-2 border-white ml-2"
+          class="ml-2 w-10 rounded-full border-2 border-white bg-white"
           src="/assets/rustular.png"
           alt="Rust Logo"
           width={128}
           height={128}
         />
-        <a class="font-mono font-bold text-3xl pl-2" href="/">Rustular</a>
+        <a class="pl-2 font-mono text-3xl font-bold" href="/">Rustular</a>
       </div>
-      <div class="text-center flex flex-col space-y-16 max-w-xl mx-auto">
+      <div class="mx-auto flex max-w-xl flex-col space-y-16 text-center">
         <div class="text-5xl">Blazingly fast</div>
         <div class="font-thin">
           Rustular is a revolutionary web development tool that harnesses the
@@ -33,15 +33,15 @@ import { Image } from '@astrojs/image/components';
           Rustular sets a new standard for building efficient and scalable web
           experiences.
         </div>
-        <div class="flex mx-auto space-x-8">
+        <div class="mx-auto flex space-x-8">
           <a
-            class="border-2 border-white hover:border-slate-200 rounded-full px-8 py-4 bg-white hover:bg-slate-200 text-fuchsia-600"
+            class="rounded-full border-2 border-white bg-white px-8 py-4 text-fuchsia-600 hover:border-slate-200 hover:bg-slate-200"
             href="/docs"
           >
             Get Started
           </a>
           <div
-            class="cursor-copy p-4 border-2 select-none border-fuchsia-600"
+            class="cursor-copy select-none border-2 border-fuchsia-600 p-4"
             onclick="navigator.clipboard.writeText('pnpm create rustular-app')"
           >
             {'> pnpm create rustular-app'}
@@ -73,11 +73,11 @@ import { Image } from '@astrojs/image/components';
         </div>
       </div>
     </div>
-    <div class="text-center space-y-4 mb-8">
+    <div class="mb-8 space-y-4 text-center">
       <div class="text-2xl">
         Faster than any other <span class="text-[0.4rem]">tested</span> framework!
       </div>
-      <div class="font-thin max-w-xl mx-auto">
+      <div class="mx-auto max-w-xl font-thin">
         We believe speed is crucial for all websites. Faster website loading
         leads to increased revenue. That's why Rustular is designed to
         prioritize speed. With its exceptionally fast loading times, your
@@ -91,7 +91,7 @@ import { Image } from '@astrojs/image/components';
         height={479}
       />
       <div class="text-2xl">Fully open-source and community-driven!</div>
-      <div class="font-thin max-w-xl mx-auto">
+      <div class="mx-auto max-w-xl font-thin">
         Rustular is fully open-source and community-driven. We believe that
         open-source software is the future of web development. That's why we
         made Rustular open-source. We want to empower developers to create
@@ -105,7 +105,7 @@ import { Image } from '@astrojs/image/components';
         >! to learn more.
       </div>
       <div class="text-2xl">The idea!</div>
-      <div class="font-thin max-w-xl mx-auto">
+      <div class="mx-auto max-w-xl font-thin">
         Take your standard web app (i.e. React, Vue, Next, Angular, etc.) and
         convert each individual component (button, div, etc.) into it's own
         dedicated Angular application. Convert each component application into
@@ -117,9 +117,9 @@ import { Image } from '@astrojs/image/components';
         single element, you dont have to recompile your entire application --
         just the individual WASM module.
       </div>
-      <div class="text-5xl pb-8">Start building with Rustular today</div>
+      <div class="pb-8 text-5xl">Start building with Rustular today</div>
       <a
-        class="border-2 border-white hover:border-slate-200 rounded-full px-8 py-4 bg-white hover:bg-slate-200 text-fuchsia-600"
+        class="rounded-full border-2 border-white bg-white px-8 py-4 text-fuchsia-600 hover:border-slate-200 hover:bg-slate-200"
         href="/docs"
       >
         Get Started

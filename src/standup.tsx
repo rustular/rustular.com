@@ -63,7 +63,7 @@ const StandUp = () => {
   }, []);
 
   return (
-    <div className="max-w-xl mx-auto">
+    <div className="mx-auto max-w-xl">
       <h1 className="text-4xl">Stand Up</h1>
       <p>
         It is currently {smallestDifference} minutes until our 6am stand up in:
