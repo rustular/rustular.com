@@ -1,6 +1,6 @@
 ---
 import { Image } from '@astrojs/image/components';
-import StandUp from '../standup';
+import StandUp from '../components/Standup';
 ---
 
 <html lang="en">
@@ -14,7 +14,7 @@ import StandUp from '../standup';
   <body class="bg-slate-950 font-sans text-white">
     <div class="mb-16 flex h-16 items-center border-b border-slate-700">
       <Image
-        class="ml-2 w-10 rounded-full border-2 border-white bg-white"
+        class="ml-2 w-10"
         src="/assets/rustular.png"
         alt="Rust Logo"
         width={128}
