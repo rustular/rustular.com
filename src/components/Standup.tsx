@@ -1,17 +1,8 @@
 import { useEffect, useState } from 'react';
 
 const getClosestTimeZone = () => {
-  // target 6am
-
-  // go through all timezones
-  // get current time in that timezone
-  // get difference between current time and 6am
-  // return the timezone with the smallest difference
-
-  // get current time
   const currentTime = new Date();
 
-  // get the time in each timezone
   const aryIannaTimeZones = Intl.supportedValuesOf('timeZone');
 
   let closestBefore6am = 0;
@@ -23,7 +14,6 @@ const getClosestTimeZone = () => {
   }[] = [];
 
   aryIannaTimeZones.forEach((timeZone) => {
-    // get current hour and minute in this timezone
     const options: Intl.DateTimeFormatOptions = {
       timeZone,
       hour: 'numeric',
