@@ -14,8 +14,13 @@ const getClosestTimeZone = () => {
   // get the time in each timezone
   const aryIannaTimeZones = Intl.supportedValuesOf('timeZone');
 
-  let smallestDifference = 24 * 60;
-  let matchingTimeZones: string[] = [];
+  let closestBefore6am = 0;
+  let closestAfter6am = 24 * 60;
+
+  const times: {
+    timeZone: string;
+    time: number;
+  }[] = [];
 
   aryIannaTimeZones.forEach((timeZone) => {
     // get current hour and minute in this timezone
@@ -31,28 +36,49 @@ const getClosestTimeZone = () => {
       .split(':')
       .map((x) => parseInt(x))
       .reduce((acc, cur) => acc * 60 + cur);
-    if (time < 360) {
-      if (360 - time < smallestDifference) {
-        smallestDifference = 360 - time;
-        matchingTimeZones = [timeZone];
-      } else if (360 - time === smallestDifference) {
-        matchingTimeZones.push(timeZone);
-      }
+    if (time < 360 && time > closestBefore6am) {
+      closestBefore6am = time;
     }
+    if (time > 360 && time < closestAfter6am) {
+      closestAfter6am = time;
+    }
+    times.push({
+      timeZone,
+      time,
+    });
   });
 
-  return [matchingTimeZones, smallestDifference] as const;
+  return [times, closestBefore6am, closestAfter6am] as const;
 };
 
 const StandUp = () => {
-  const [matchingTimeZones, setMatchingTimeZones] = useState<string[]>([]);
-  const [smallestDifference, setSmallestDifference] = useState<number>(0);
+  const [times, setTimes] = useState<{
+    allBefore6am: string[];
+    allAfter6am: string[];
+    timeTo6am: number;
+    timeFrom6am: number;
+  }>({
+    allBefore6am: [],
+    allAfter6am: [],
+    timeTo6am: 0,
+    timeFrom6am: 0,
+  });
 
   useEffect(() => {
     const updateClosestTimeZone = () => {
-      const [matchingTimeZones, smallestDifference] = getClosestTimeZone();
-      setMatchingTimeZones(matchingTimeZones);
-      setSmallestDifference(smallestDifference);
+      const [times, closestBefore6am, closestAfter6am] = getClosestTimeZone();
+      const allBefore6am = times
+        .filter((time) => time.time === closestBefore6am)
+        .map((time) => time.timeZone);
+      const allAfter6am = times
+        .filter((time) => time.time === closestAfter6am)
+        .map((time) => time.timeZone);
+      setTimes({
+        allBefore6am,
+        allAfter6am,
+        timeTo6am: 360 - closestBefore6am,
+        timeFrom6am: closestAfter6am - 360,
+      });
     };
     updateClosestTimeZone();
     const interval = setInterval(updateClosestTimeZone, 300);
@@ -65,11 +91,17 @@ const StandUp = () => {
   return (
     <div className="mx-auto max-w-xl">
       <h1 className="text-4xl">Stand Up</h1>
+      <p>Our current stand up started {times.timeFrom6am} minutes ago in:</p>
+      <ul className="list-disc">
+        {times.allAfter6am.map((timeZone) => (
+          <li key={timeZone}>{timeZone}</li>
+        ))}
+      </ul>
       <p>
-        It is currently {smallestDifference} minutes until our 6am stand up in:
+        It is currently {times.timeTo6am} minutes until our 6am stand up in:
       </p>
       <ul className="list-disc">
-        {matchingTimeZones.map((timeZone) => (
+        {times.allBefore6am.map((timeZone) => (
           <li key={timeZone}>{timeZone}</li>
         ))}
       </ul>
