@@ -1,0 +1,45 @@
+---
+---
+
+<div class="mx-auto w-96 py-4">
+  <label class="mb-2 block text-lg font-bold text-white" for="email"
+    >Subscribe to our newsletter</label
+  >
+  <form data-email-subscription class="flex place-content-between">
+    <input
+      class="w-full rounded-lg bg-slate-900 p-2 text-white"
+      type="email"
+      name="email"
+      id="email"
+      placeholder="Enter your email"
+      required
+    />
+    <button class="ml-2 rounded-lg bg-slate-900 p-2 text-white" type="submit"
+      >Subscribe</button
+    >
+  </form>
+</div>
+
+<script>
+  import { z } from 'zod';
+
+  const forms = document.querySelectorAll('[data-email-subscription]');
+  forms.forEach((form) => {
+    form.addEventListener('submit', (e) => {
+      e.preventDefault();
+      // TODO: Send email to some service
+      const email = z
+        .string()
+        .email()
+        .safeParse((e.target as any)?.email?.value);
+
+      if (!email.success) {
+        alert('Please enter a valid email address');
+        return;
+      }
+
+      console.log(email.data);
+      form.innerHTML = 'Thank you for subscribing!';
+    });
+  });
+</script>
