@@ -1,0 +1,21 @@
+{
+  "parserOptions": {
+    "project": "tsconfig.json"
+  },
+  "overrides": [
+    {
+      "files": ["*.astro"],
+      "extends": ["plugin:astro/recommended", "plugin:astro/jsx-a11y-strict"]
+    },
+    {
+      "files": ["*.ts", "*.tsx"],
+      "extends": [
+        "plugin:@typescript-eslint/recommended-requiring-type-checking"
+      ]
+    },
+    {
+      "files": ["*.mdx"],
+      "extends": ["plugin:mdx/recommended"]
+    }
+  ]
+}
