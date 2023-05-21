@@ -1,6 +1,7 @@
 ---
 import { Image } from '@astrojs/image/components';
 import Layout from '../components/Layout.astro';
+import Testimonial from '../components/Testimonial.astro';
 ---
 
 <Layout title="Home">
@@ -85,9 +86,8 @@ import Layout from '../components/Layout.astro';
       Rustular open-source. We want to empower developers to create amazing web
       experiences. The Rustular community is always growing, and we'd love for
       you to join us! Visit our{' '}
-      <a class="underline" href="https://github.com/rustular">
-        GitHub</a
-      > to learn more.
+      <a class="underline" href="https://github.com/rustular"> GitHub</a> to learn
+      more.
     </div>
     <div class="text-2xl">The idea!</div>
     <div class="mx-auto max-w-xl font-thin">
@@ -102,6 +102,25 @@ import Layout from '../components/Layout.astro';
       element, you dont have to recompile your entire application -- just the
       individual WASM module.
     </div>
+    <h2 class="text-5xl">Developers love Rustular!</h2>
+    <div class="m-auto flex max-w-4xl flex-wrap justify-center gap-4">
+      <Testimonial
+        name="whatplan"
+        profilePic="https://pbs.twimg.com/profile_images/1636134883767590914/nRoVdSdw_400x400.jpg"
+        testimonial="Time to rewrite my entire application in Rustular"
+      />
+      <Testimonial
+        name="Tonya"
+        profilePic="https://cdn.discordapp.com/avatars/366321360861003787/6bdb5ec4c0a6466c1334300dfcf97ae4.png?size=256"
+        testimonial="I never thought I'd be able to build a website this fast!"
+      />
+      <Testimonial
+        name="Iyla Kiwa"
+        profilePic="https://pbs.twimg.com/profile_images/1379090523831537665/hunTGLqy_400x400.jpg"
+        testimonial="This is a monstrosity, all involved should be locked up"
+      />
+    </div>
+
     <div class="pb-8 text-5xl">Start building with Rustular today</div>
     <a
       class="rounded-full border-2 border-white bg-white px-8 py-4 text-fuchsia-600 hover:border-slate-200 hover:bg-slate-200"
