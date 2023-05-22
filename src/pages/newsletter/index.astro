@@ -1,0 +1,31 @@
+---
+import { Image } from '@astrojs/image/components';
+
+import Layout from '../../components/Layout.astro';
+interface Frontmatter {
+  title: string;
+  date: string;
+  description: string;
+}
+
+const newsletters = await Astro.glob<Frontmatter>('./*.md');
+---
+
+<Layout title="Newsletters">
+  <h1>Newsletters</h1>
+  <div class="">
+    {
+      newsletters.map((newsletter) => (
+        <a rel="prefetch" href={newsletter.url}>
+          <Image
+            src={`/assets/newsletter/${newsletter.frontmatter.date}.png`}
+            alt={newsletter.frontmatter.title}
+            width={256}
+            height={144}
+          />
+          <h2>{newsletter.frontmatter.title}</h2>
+        </a>
+      ))
+    }
+  </div>
+</Layout>
