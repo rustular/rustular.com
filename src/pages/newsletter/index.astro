@@ -1,36 +1,30 @@
 ---
-import { Image } from '@astrojs/image/components';
+import { Image } from 'astro:assets';
 
 import Layout from '../../components/Layout.astro';
-interface Frontmatter {
-  title: string;
-  date: string;
-  description: string;
-}
+import { getCollection } from 'astro:content';
 
-const newsletters = await Astro.glob<Frontmatter>('./*.md');
+const newsletters = await getCollection('newsletter');
 ---
 
 <Layout title="Newsletters">
-  <h1 class="text-2xl font-bold text-center mb-16">Newsletters</h1>
+  <h1 class="mb-16 text-center text-2xl font-bold">Newsletters</h1>
   <div class="m-auto flex max-w-4xl flex-wrap justify-center gap-4">
     {
       newsletters.map((newsletter) => (
         <a
-          class="flex flex-col items-center w-72 hover:text-blue-500 hover:underline"
+          class="flex w-72 flex-col items-center hover:text-blue-500 hover:underline"
           rel="prefetch"
-          href={newsletter.url}
+          href={`/newsletter/${newsletter.slug}`}
         >
           <Image
-            class="rounded-lg w-full"
-            src={`/assets/newsletter/${newsletter.frontmatter.date}.png`}
-            alt={newsletter.frontmatter.title}
+            class="w-full rounded-lg"
+            src={newsletter.data.cover}
+            alt={newsletter.data.title}
             width={256}
             height={144}
           />
-          <h2 class="mt-2 text-lg font-medium">
-            {newsletter.frontmatter.title}
-          </h2>
+          <h2 class="mt-2 text-lg font-medium">{newsletter.data.title}</h2>
         </a>
       ))
     }
