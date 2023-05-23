@@ -1,6 +1,4 @@
 ---
-import { Image } from 'astro:assets';
-
 import Layout from '../../components/Layout.astro';
 import { getCollection } from 'astro:content';
 
@@ -17,9 +15,9 @@ const newsletters = await getCollection('newsletter');
           rel="prefetch"
           href={`/newsletter/${newsletter.slug}`}
         >
-          <Image
+          <img
             class="w-full rounded-lg"
-            src={newsletter.data.cover}
+            src={`/public/newsletter/${newsletter.data.date}.png`}
             alt={newsletter.data.title}
             width={256}
             height={144}

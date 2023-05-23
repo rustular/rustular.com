@@ -11,7 +11,6 @@ export default defineConfig({
   output: 'hybrid',
   experimental: {
     hybridOutput: true,
-    assets: true,
   },
   adapter: cloudflare(),
 });

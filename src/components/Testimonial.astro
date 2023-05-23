@@ -1,11 +1,9 @@
 ---
-import { Image } from 'astro:assets';
-
 type Props = {
   name: string;
   profilePic: string;
   testimonial: string;
-}
+};
 
 const { name, profilePic, testimonial } = Astro.props;
 ---
@@ -14,7 +12,7 @@ const { name, profilePic, testimonial } = Astro.props;
   class="flex w-72 flex-col items-center rounded-md border border-slate-400 bg-slate-900 p-2"
 >
   <div class="flex">
-    <Image
+    <img
       class="rounded-full"
       src={profilePic}
       alt={`${name}'s profile picture'`}
