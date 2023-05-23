@@ -20,17 +20,18 @@
   </form>
   <a
     rel="prefetch"
-    class="mt-2 block text-sm text-blue-500 hover:underline w-min whitespace-nowrap"
+    class="mt-2 block w-min whitespace-nowrap text-sm text-blue-500 hover:underline"
     href="/newsletter">View our past newsletters</a
   >
 </div>
 
 <script>
   import { z } from 'zod';
+  import api from '../api';
 
   const forms = document.querySelectorAll('[data-email-subscription]');
   forms.forEach((form) => {
-    form.addEventListener('submit', (e) => {
+    form.addEventListener('submit', async (e) => {
       e.preventDefault();
       // TODO: Send email to some service
       const email = z
@@ -43,8 +44,15 @@
         return;
       }
 
-      console.log(email.data);
-      form.innerHTML = 'Thank you for subscribing!';
+      api.emailSub
+        .mutate(email.data)
+        .then(() => {
+          form.innerHTML = 'Thank you for subscribing!';
+        })
+        .catch((err) => {
+          console.error(err);
+          alert('Something went wrong. Please try again later.');
+        });
     });
   });
 </script>
