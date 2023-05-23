@@ -6,7 +6,7 @@ const client = createTRPCProxyClient<AppRouter>({
     httpBatchLink({
       url: import.meta.env.DEV
         ? 'http://localhost:3000/trpc'
-        : import.meta.env.SITE,
+        : import.meta.env.CF_PAGES_URL,
     }),
   ],
 });
