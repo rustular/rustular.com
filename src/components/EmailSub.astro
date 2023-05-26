@@ -2,57 +2,14 @@
 ---
 
 <div class="mx-auto w-96 py-4">
-  <label class="mb-2 block text-lg font-bold text-white" for="email"
-    >Subscribe to our newsletter</label
+  <a
+    href="https://rustular.ck.page/1fbd315725"
+    class="mb-2 block w-min whitespace-nowrap text-lg font-bold text-blue-500 hover:underline"
+    >Subscribe to our newsletter</a
   >
-  <form data-email-subscription class="flex place-content-between">
-    <input
-      class="w-full rounded-lg bg-slate-900 p-2 text-white"
-      type="email"
-      name="email"
-      id="email"
-      placeholder="Enter your email"
-      required
-    />
-    <button class="ml-2 rounded-lg bg-slate-900 p-2 text-white" type="submit"
-      >Subscribe</button
-    >
-  </form>
   <a
     rel="prefetch"
     class="mt-2 block w-min whitespace-nowrap text-sm text-blue-500 hover:underline"
     href="/newsletter">View our past newsletters</a
   >
 </div>
-
-<script>
-  import { z } from 'zod';
-  import api from '../api';
-
-  const forms = document.querySelectorAll('[data-email-subscription]');
-  forms.forEach((form) => {
-    form.addEventListener('submit', async (e) => {
-      e.preventDefault();
-      // TODO: Send email to some service
-      const email = z
-        .string()
-        .email()
-        .safeParse((e.target as any)?.email?.value);
-
-      if (!email.success) {
-        alert('Please enter a valid email address');
-        return;
-      }
-
-      api.emailSub
-        .mutate(email.data)
-        .then(() => {
-          form.innerHTML = 'Thank you for subscribing!';
-        })
-        .catch((err) => {
-          console.error(err);
-          alert('Something went wrong. Please try again later.');
-        });
-    });
-  });
-</script>
