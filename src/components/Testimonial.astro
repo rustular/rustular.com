@@ -1,18 +1,18 @@
 ---
-import { Image } from '@astrojs/image/components';
-
-interface Props {
+type Props = {
   name: string;
   profilePic: string;
   testimonial: string;
-}
+};
 
 const { name, profilePic, testimonial } = Astro.props;
 ---
 
-<div class="flex w-72 flex-col items-center rounded-md border p-2 border-slate-400 bg-slate-900">
+<div
+  class="flex w-72 flex-col items-center rounded-md border border-slate-400 bg-slate-900 p-2"
+>
   <div class="flex">
-    <Image
+    <img
       class="rounded-full"
       src={profilePic}
       alt={`${name}'s profile picture'`}

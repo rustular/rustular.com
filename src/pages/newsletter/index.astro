@@ -1,0 +1,30 @@
+---
+import Layout from '../../components/Layout.astro';
+import { getCollection } from 'astro:content';
+
+const newsletters = await getCollection('newsletter');
+---
+
+<Layout title="Newsletters">
+  <h1 class="mb-16 text-center text-2xl font-bold">Newsletters</h1>
+  <div class="m-auto flex max-w-4xl flex-wrap justify-center gap-4">
+    {
+      newsletters.map((newsletter) => (
+        <a
+          class="flex w-72 flex-col items-center hover:text-blue-500 hover:underline"
+          rel="prefetch"
+          href={`/newsletter/${newsletter.slug}`}
+        >
+          <img
+            class="w-full rounded-lg"
+            src={`/public/newsletter/${newsletter.data.date}.png`}
+            alt={newsletter.data.title}
+            width={256}
+            height={144}
+          />
+          <h2 class="mt-2 text-lg font-medium">{newsletter.data.title}</h2>
+        </a>
+      ))
+    }
+  </div>
+</Layout>

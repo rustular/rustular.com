@@ -1,11 +1,15 @@
 ---
-import { Image } from '@astrojs/image/components';
 import Layout from '../components/Layout.astro';
 import Testimonial from '../components/Testimonial.astro';
+
+import angularLogo from '../assets/angular.png';
+import rustLogo from '../assets/rust.png';
+import webAssemblyLogo from '../assets/webassembly.png';
+import speed from '../assets/speed.png';
 ---
 
 <Layout title="Home">
-  <div class="mx-auto flex max-w-xl flex-col space-y-16 text-center">
+  <div class="mx-auto flex max-w-2xl flex-col space-y-16 text-center">
     <div class="text-5xl">Blazingly fast</div>
     <div class="font-thin">
       Rustular is a revolutionary web development tool that harnesses the
@@ -36,28 +40,22 @@ import Testimonial from '../components/Testimonial.astro';
         </div>
       </div>
     </div>
-    <div>
+    <div class="space-y-4">
       Powered by:
-      <Image
+      <img
         class="mx-auto w-1/4"
-        src="/assets/angular.png"
+        src={angularLogo}
         alt="Angular Logo"
-        width={269}
-        height={72}
       />
-      <Image
+      <img
         class="mx-auto w-1/4"
-        src="/assets/rust.png"
+        src={rustLogo}
         alt="Rust Logo"
-        width={265}
-        height={164}
       />
-      <Image
+      <img
         class="mx-auto w-1/4"
-        src="/assets/webassembly.png"
+        src={webAssemblyLogo}
         alt="Web Assembly Logo"
-        width={211}
-        height={120}
       />
     </div>
   </div>
@@ -72,9 +70,9 @@ import Testimonial from '../components/Testimonial.astro';
       With its exceptionally fast loading times, your customers won't have to
       wait.
     </div>
-    <Image
+    <img
       class="mx-auto"
-      src="/assets/speed.png"
+      src={speed}
       alt="Rustular"
       width={476}
       height={479}
@@ -138,6 +136,7 @@ import Testimonial from '../components/Testimonial.astro';
 
     <div class="pb-8 text-5xl">Start building with Rustular today</div>
     <a
+      rel="prefetch"
       class="rounded-full border-2 border-white bg-white px-8 py-4 text-fuchsia-600 hover:border-slate-200 hover:bg-slate-200"
       href="/docs"
     >
