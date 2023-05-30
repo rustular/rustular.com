@@ -157,7 +157,9 @@ import Testimonial from '../components/Testimonial.astro';
     'is the future of web development!',
     'brings speed, security, and a touch of rust to the table!',
     'Theo should use!',
-  ];
+  ].sort(() => Math.random() - 0.5);
+
+  messages.push('is the future of web development!');
 
   const delay = 100; // Delay between typing and deleting in milliseconds
   const pause = 1000; // Pause between deleting and typing a new message in milliseconds
@@ -196,7 +198,7 @@ import Testimonial from '../components/Testimonial.astro';
   };
 
   // Start the typewriter effect
-  setTimeout(type, pause);
+  setTimeout(type, pause * 2);
 
   setInterval(() => {
     cursorVisible = !cursorVisible;
