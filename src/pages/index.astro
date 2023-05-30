@@ -6,7 +6,12 @@ import Testimonial from '../components/Testimonial.astro';
 
 <Layout title="Home">
   <div class="mx-auto flex max-w-xl flex-col space-y-16 text-center">
-    <div class="text-5xl">Blazingly fast</div>
+    <div class="text-5xl">
+      Web framework that
+      <br />
+      <span id="typewriter">takes web development to the next level</span>
+      <span id="cursor">|</span>
+    </div>
     <div class="font-thin">
       Rustular is a revolutionary web development tool that harnesses the
       immense power of Rust, WebAssembly, and Angular. By leveraging these
@@ -145,3 +150,58 @@ import Testimonial from '../components/Testimonial.astro';
     </a>
   </div>
 </Layout>
+
+<script>
+  const messages = [
+    'combines the strength of Rust with the elegance of web design!',
+    'is the future of web development!',
+    'brings speed, security, and a touch of rust to the table!',
+    'Theo should use!',
+  ];
+
+  const delay = 100; // Delay between typing and deleting in milliseconds
+  const pause = 1000; // Pause between deleting and typing a new message in milliseconds
+
+  let currentIndex = 0;
+  let currentMessage = '';
+  let isDeleting = false;
+  let cursorVisible = true; // Flag to track the visibility of the cursor
+
+  const type = () => {
+    const message = messages[currentIndex]!;
+
+    if (isDeleting) {
+      // Deleting characters
+      currentMessage = message.substring(0, currentMessage.length - 1);
+    } else {
+      // Typing characters
+      currentMessage = message.substring(0, currentMessage.length + 1);
+    }
+
+    document.getElementById('typewriter')!.textContent = currentMessage;
+
+    // Determine the typing speed
+    let typingSpeed = isDeleting ? delay / 2 : delay;
+
+    // Check if the current message is typed or deleted completely
+    if (!isDeleting && currentMessage === message) {
+      typingSpeed = pause; // Pause before typing the next message
+      isDeleting = true;
+    } else if (isDeleting && currentMessage === '') {
+      isDeleting = false;
+      currentIndex = (currentIndex + 1) % messages.length; // Move to the next message
+    }
+
+    setTimeout(type, typingSpeed);
+  };
+
+  // Start the typewriter effect
+  setTimeout(type, pause);
+
+  setInterval(() => {
+    cursorVisible = !cursorVisible;
+    document.getElementById('cursor')!.style.visibility = cursorVisible
+      ? 'visible'
+      : 'hidden';
+  }, 500);
+</script>
