@@ -5,35 +5,54 @@ import Testimonial from '../components/Testimonial.astro';
 ---
 
 <Layout title="Home">
-  <section class="grid grid-cols-1 gap-y-16 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-
+  <section
+    class="mx-auto grid max-w-7xl grid-cols-1 gap-y-16 px-4 sm:px-6 lg:px-8"
+  >
     <style>
       #typewriter {
         color: red; /* Fallback color */
         animation: rainbow 15s infinite;
       }
-    
+
       @keyframes rainbow {
-        0% { color: red; }
-        14% { color: orange; }
-        28% { color: yellow; }
-        42% { color: green; }
-        57% { color: blue; }
-        71% { color: indigo; }
-        85% { color: violet; }
-        100% { color: red; }
+        0% {
+          color: red;
+        }
+        14% {
+          color: orange;
+        }
+        28% {
+          color: yellow;
+        }
+        42% {
+          color: green;
+        }
+        57% {
+          color: blue;
+        }
+        71% {
+          color: indigo;
+        }
+        85% {
+          color: violet;
+        }
+        100% {
+          color: red;
+        }
       }
     </style>
 
-    <div class="text-center space-y-6">
+    <div class="space-y-6 text-center">
       <h1 class="text-3xl">
         The Web Science that
         <br />
         <span id="typewriter">takes web development to the next level</span>
         <span id="cursor">|</span>
       </h1>
-      <p class="max-w-xl mx-auto space-y-8">
-        <strong>Rustular: </strong>a drop-in metaframework that <strong>supercharges</strong> any web application.
+      <p class="mx-auto max-w-xl space-y-8">
+        <strong>Rustular:</strong>a drop-in metaframework that <strong
+          >supercharges</strong
+        > any web application.
       </p>
       <div class="flex justify-center space-x-8">
         <a
@@ -60,9 +79,9 @@ import Testimonial from '../components/Testimonial.astro';
 
     <!-- More sections continue in the same fashion -->
 
-    <div class="text-center space-y-6">
+    <div class="space-y-6 text-center">
       <h2 class="text-3xl">Powered by:</h2>
-      <div class="max-w-xl mx-auto font-thin space-y-8">
+      <div class="mx-auto max-w-xl space-y-8 font-thin">
         <div>
           <Image
             class="mx-auto w-1/4"
@@ -71,7 +90,12 @@ import Testimonial from '../components/Testimonial.astro';
             width={265}
             height={164}
           />
-          <p>Known for its performance and memory safety, Rust is at the heart of Rustular. The Rustular build server, powered by Rust, deliver optimal performance and efficient resource utilization, ensuring your web applications are compiled and served lightning-fast.</p>
+          <p>
+            Known for its performance and memory safety, Rust is at the heart of
+            Rustular. The Rustular build server, powered by Rust, deliver
+            optimal performance and efficient resource utilization, ensuring
+            your web applications are compiled and served lightning-fast.
+          </p>
         </div>
 
         <div>
@@ -82,29 +106,44 @@ import Testimonial from '../components/Testimonial.astro';
             width={211}
             height={120}
           />
-          <p>WebAssembly modules make your applications fast and efficient. At Rustular, we embrace modularity by converting each individual component of your web app into a dedicated WASM module. This approach not only makes your applications quick but also simplifies maintenance, enables code reuse, and allows independent updates to specific components without recompiling the entire application.</p>
+          <p>
+            WebAssembly modules make your applications fast and efficient. At
+            Rustular, we embrace modularity by converting each individual
+            component of your web app into a dedicated WASM module. This
+            approach not only makes your applications quick but also simplifies
+            maintenance, enables code reuse, and allows independent updates to
+            specific components without recompiling the entire application.
+          </p>
         </div>
 
         <div>
           <Image
-          class="mx-auto w-1/4"
-          src="/assets/angular.png"
-          alt="Angular Logo"
-          width={269}
-          height={72}
-        />
-          <p>Angular's component-based architecture, wide-ranging capabilities, and high scalability make it an ideal choice for Rustular. With Angular, we ensure that your applications are not just fast, but also highly interactive and user-friendly, providing the end-user with a superior web experience.</p>
+            class="mx-auto w-1/4"
+            src="/assets/angular.png"
+            alt="Angular Logo"
+            width={269}
+            height={72}
+          />
+          <p>
+            Angular's component-based architecture, wide-ranging capabilities,
+            and high scalability make it an ideal choice for Rustular. With
+            Angular, we ensure that your applications are not just fast, but
+            also highly interactive and user-friendly, providing the end-user
+            with a superior web experience.
+          </p>
         </div>
       </div>
     </div>
-
   </section>
 
   <div class="my-8 space-y-4 text-center">
     <!-- Speed Advantage Section -->
     <div class="text-2xl">Embrace Speed Like Never Before</div>
     <div class="mx-auto max-w-xl font-thin">
-      We understand the importance of speed for websites. Faster loading times can lead to increased revenue, and a smoother user experience. Rustular is designed with this in mind. Experience lightning-fast loading times and ensure your users never have to wait again.
+      We understand the importance of speed for websites. Faster loading times
+      can lead to increased revenue, and a smoother user experience. Rustular is
+      designed with this in mind. Experience lightning-fast loading times and
+      ensure your users never have to wait again.
     </div>
     <Image
       class="mx-auto"
@@ -116,16 +155,27 @@ import Testimonial from '../components/Testimonial.astro';
     <!-- Open Source Section -->
     <div class="text-2xl">Open-Source and Community-Driven</div>
     <div class="mx-auto max-w-xl font-thin">
-      We're proud to say that Rustular is fully open-source and community-driven. We believe that the future of web development lies in open-source software. We aim to empower developers to create incredible web experiences, and invite you to join our ever-growing Rustular community. Visit our <a class="underline" href="https://github.com/rustular">GitHub</a> to learn more.
+      We're proud to say that Rustular is fully open-source and
+      community-driven. We believe that the future of web development lies in
+      open-source software. We aim to empower developers to create incredible
+      web experiences, and invite you to join our ever-growing Rustular
+      community. Visit our <a
+        class="underline"
+        href="https://github.com/rustular">GitHub</a
+      > to learn more.
     </div>
     <!-- Rationale Section -->
     <div class="text-2xl">Our Methodology</div>
     <div class="mx-auto max-w-xl font-thin">
-      Here's how it works. Take your standard web app (like React, Vue, Next, Angular, etc.) and convert each individual component (like buttons, divs, etc.) into its own dedicated WASM module with granular reactivity. 
-      Import each module into a primary Angular application using WebAssembly.instantiateStreaming(). 
-      This process <strong>also</strong> optimizes critical CSS load times by converting every ASCII key-value into respective hexadecimal values. 
-      The beauty of this system is that if you ever need to change a single element, you don't need to recompile your entire application - just the individual WASM module. 
-      This is our commitment to efficiency.
+      Here's how it works. Take your standard web app (like React, Vue, Next,
+      Angular, etc.) and convert each individual component (like buttons, divs,
+      etc.) into its own dedicated WASM module with granular reactivity. Import
+      each module into a primary Angular application using
+      WebAssembly.instantiateStreaming(). This process <strong>also</strong> optimizes
+      critical CSS load times by converting every ASCII key-value into respective
+      hexadecimal values. The beauty of this system is that if you ever need to change
+      a single element, you don't need to recompile your entire application - just
+      the individual WASM module. This is our commitment to efficiency.
     </div>
     <h2 class="text-5xl">Developers love Rustular!</h2>
     <div class="m-auto flex max-w-4xl flex-wrap justify-center gap-4">
@@ -178,6 +228,8 @@ import Testimonial from '../components/Testimonial.astro';
     'brings speed, security, and a touch of Rust to the table!',
     'Theo should use!',
   ].sort(() => Math.random() - 0.5);
+
+  if (Math.random() < 0.1) messages.push('is not as good as Remix!');
 
   messages.push('is the future of web development!');
 
