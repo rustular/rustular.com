@@ -1,5 +1,6 @@
 ---
-import { Image } from '@astrojs/image/components';
+import { Image } from 'astro:assets';
+import { ViewTransitions } from 'astro:transitions';
 
 interface Props {
   title: string;
@@ -14,15 +15,17 @@ const { title } = Astro.props;
     <link rel="icon" type="image/ico" href="/favicon.ico?v=1" />
     <meta name="viewport" content="width=device-width" />
     <meta name="generator" content="Rustular 0.0.0" />
+    <meta name="darkreader-lock">
     <title>{title} - Rustular</title>
     <script
       defer
       data-domain="rustular.pages.dev"
       src="https://ingest.tokia.dev/js/script.js"
     ></script>
+    <ViewTransitions />
   </head>
   <body class="bg-slate-950 font-sans text-white">
-    <header class="mb-16 flex h-16 items-center border-b border-slate-700">
+    <header class="mb-16 flex h-16 items-center border-b border-slate-700" transition:name="header">
       <Image
         class="ml-2 w-10"
         src="/assets/rustular.png"
