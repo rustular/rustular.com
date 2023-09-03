@@ -1,5 +1,5 @@
 ---
-import { Image } from '@astrojs/image/components';
+import { Image } from 'astro:assets';
 import Layout from '../components/Layout.astro';
 import Testimonial from '../components/Testimonial.astro';
 ---
@@ -64,7 +64,9 @@ import Testimonial from '../components/Testimonial.astro';
         </a>
         <div
           class="flex cursor-copy select-none bg-gradient-to-r from-fuchsia-600 via-blue-700 to-pink-600 bg-size-200 bg-pos-0 p-0.5 transition-all duration-1000 hover:bg-pos-100 hover:duration-500"
-          onclick="navigator.clipboard.writeText('pnpm create rustular-app')"
+          onclick="
+          navigator.clipboard.writeText('pnpm create rustular-app')
+          "
         >
           <div
             class="mx-auto flex bg-slate-950 p-3 transition-colors duration-500 active:bg-slate-900 active:duration-0"
