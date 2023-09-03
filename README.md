@@ -1,3 +1,3 @@
-# [rustular.pages.dev](https://rustular.pages.dev)
+# [rustular.com](https://rustular.com)
 
-The source code for rustular.pages.dev, a website for the [Rustular project](https://github.com/lofimichael/rustular).
+The source code for rustular.com, a website for the [Rustular project](https://github.com/lofimichael/rustular).

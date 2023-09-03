@@ -9,19 +9,23 @@ interface Props {
 }
 
 const { title } = Astro.props;
+const { pathname } = Astro.url;
+
+const pathnameWithSlash = pathname.endsWith('/') ? pathname : `${pathname}/`;
 ---
 
 <html lang="en">
   <head>
     <meta charset="utf-8" />
     <link rel="icon" type="image/ico" href="/favicon.ico?v=1" />
+    <link rel="canonical" href=`https://rustular.com${pathnameWithSlash}`/>
     <meta name="viewport" content="width=device-width" />
     <meta name="generator" content="Rustular 0.0.0" />
     <meta name="darkreader-lock">
     <title>{title} - Rustular</title>
     <script
       defer
-      data-domain="rustular.pages.dev"
+      data-domain="rustular.com"
       src="https://ingest.tokia.dev/js/script.js"
     ></script>
     <ViewTransitions />
