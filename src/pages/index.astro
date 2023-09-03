@@ -2,6 +2,11 @@
 import { Image } from 'astro:assets';
 import Layout from '../components/Layout.astro';
 import Testimonial from '../components/Testimonial.astro';
+
+import RustLogo from '../assets/rust.png';
+import WebAssemblyLogo from '../assets/webassembly.png';
+import AngularLogo from '../assets/angular.png';
+import Speed from '../assets/speed.png';
 ---
 
 <Layout title="Home">
@@ -103,7 +108,7 @@ import Testimonial from '../components/Testimonial.astro';
         <div>
           <Image
             class="mx-auto w-1/4"
-            src="/assets/rust.png"
+            src={RustLogo}
             alt="Rust Logo"
             width={265}
             height={164}
@@ -119,7 +124,7 @@ import Testimonial from '../components/Testimonial.astro';
         <div>
           <Image
             class="mx-auto w-1/4"
-            src="/assets/webassembly.png"
+            src={WebAssemblyLogo}
             alt="Web Assembly Logo"
             width={211}
             height={120}
@@ -137,7 +142,7 @@ import Testimonial from '../components/Testimonial.astro';
         <div>
           <Image
             class="mx-auto w-1/4"
-            src="/assets/angular.png"
+            src={AngularLogo}
             alt="Angular Logo"
             width={269}
             height={72}
@@ -170,7 +175,7 @@ import Testimonial from '../components/Testimonial.astro';
     </div>
     <Image
       class="mx-auto"
-      src="/assets/speed.png"
+      src={Speed}
       alt="Rustular"
       width={476}
       height={479}
@@ -233,6 +238,9 @@ import Testimonial from '../components/Testimonial.astro';
 </Layout>
 
 <script>
+  const typewriter = document.getElementById('typewriter');
+  const cursor = document.getElementById('cursor');
+
   const messages = [
     'combines the strength of Rust with the elegance of web design!',
     'is the future of web development!',
@@ -242,13 +250,13 @@ import Testimonial from '../components/Testimonial.astro';
 
   if (Math.random() < 0.1) messages.push('is not as good as Remix!');
 
-  messages.push('is the future of web development!');
+  messages.push('takes web development to the next level');
 
   const delay = 100; // Delay between typing and deleting in milliseconds
   const pause = 1000; // Pause between deleting and typing a new message in milliseconds
 
-  let currentIndex = 0;
-  let currentMessage = '';
+  let currentIndex = messages.length - 1;
+  let currentMessage = 'takes web development to the next level';
   let isDeleting = false;
   let cursorVisible = true; // Flag to track the visibility of the cursor
 
@@ -263,7 +271,7 @@ import Testimonial from '../components/Testimonial.astro';
       currentMessage = message.substring(0, currentMessage.length + 1);
     }
 
-    document.getElementById('typewriter')!.textContent = currentMessage;
+    if (typewriter) typewriter.textContent = currentMessage;
 
     // Determine the typing speed
     let typingSpeed = isDeleting ? delay / 2 : delay;
@@ -281,11 +289,11 @@ import Testimonial from '../components/Testimonial.astro';
   };
 
   // Start the typewriter effect
-  setTimeout(type, pause * 2);
+  setTimeout(type, pause);
 
   setInterval(() => {
     cursorVisible = !cursorVisible;
-    document.getElementById('cursor')!.style.visibility = cursorVisible
+    if (cursor) cursor.style.visibility = cursorVisible
       ? 'visible'
       : 'hidden';
   }, 500);
