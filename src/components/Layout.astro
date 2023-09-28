@@ -45,6 +45,10 @@ const pathnameWithSlash = pathname.endsWith('/') ? pathname : `${pathname}/`;
       >
     </a>
     </header>
-    <slot />
+    <div
+      class="max-w-3xl mx-auto px-6"
+    >
+      <slot />
+    </div>
   </body>
 </html>
